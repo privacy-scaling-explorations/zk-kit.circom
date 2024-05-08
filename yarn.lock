@@ -421,6 +421,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zk-kit/binary-merkle-root.circom@workspace:packages/binary-merkle-root":
+  version: 0.0.0-use.local
+  resolution: "@zk-kit/binary-merkle-root.circom@workspace:packages/binary-merkle-root"
+  dependencies:
+    "@zk-kit/imt": "npm:^2.0.0-beta.4"
+    circomkit: "npm:^0.1.0"
+    circomlib: "npm:^2.0.5"
+    mocha: "npm:^10.2.0"
+    poseidon-lite: "npm:^0.2.0"
+  languageName: unknown
+  linkType: soft
+
 "@zk-kit/ecdh.circom@workspace:packages/ecdh":
   version: 0.0.0-use.local
   resolution: "@zk-kit/ecdh.circom@workspace:packages/ecdh"
@@ -442,6 +454,13 @@ __metadata:
     "@zk-kit/utils": "npm:1.0.0-beta.4"
     buffer: "npm:6.0.3"
   checksum: 10/630986ae3d32debf796a29eed7a6e1cd8c3dd8bae48f58f2756c5d92f524d9d2bc586662da7726d9fe40c2e2a43e4011b64916a75f4b61c803ca7255bd5e3670
+  languageName: node
+  linkType: hard
+
+"@zk-kit/imt@npm:^2.0.0-beta.4":
+  version: 2.0.0-beta.4
+  resolution: "@zk-kit/imt@npm:2.0.0-beta.4"
+  checksum: 10/9e042472c81bb362ad4580eb3ab69b4d07bacc224d920a5539ed326855e99c70824cc795732642318c6ea2533b48e980009968fe996e4bfde9dbfbbf4a3e14bb
   languageName: node
   linkType: hard
 

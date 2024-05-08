@@ -1,0 +1,32 @@
+{
+    "name": "@zk-kit/binary-merkle-root.circom",
+    "version": "1.0.0-beta",
+    "description": "A circuit to calculate the root of a binary Merkle tree using a provided proof-of-membership.",
+    "license": "MIT",
+    "files": [
+        "src/**/*.circom",
+        "!src/main",
+        "!src/test",
+        "LICENSE",
+        "README.md"
+    ],
+    "repository": "git@github.com:privacy-scaling-explorations/zk-kit.circom.git",
+    "homepage": "https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/binary-merkle-root",
+    "scripts": {
+        "compile": "circomkit compile binary-merkle-root",
+        "setup": "circomkit setup binary-merkle-root",
+        "test": "mocha"
+    },
+    "dependencies": {
+        "circomlib": "^2.0.5"
+    },
+    "devDependencies": {
+        "@zk-kit/imt": "^2.0.0-beta.4",
+        "circomkit": "^0.1.0",
+        "mocha": "^10.2.0",
+        "poseidon-lite": "^0.2.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
