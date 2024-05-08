@@ -1,0 +1,30 @@
+{
+    "name": "@zk-kit/utils.circom",
+    "version": "1.0.0-beta",
+    "description": "An utility library of general-purpose Circom circuits.",
+    "license": "MIT",
+    "files": [
+        "src/**/*.circom",
+        "!src/main",
+        "!src/test",
+        "LICENSE",
+        "README.md"
+    ],
+    "repository": "git@github.com:privacy-scaling-explorations/zk-kit.circom.git",
+    "homepage": "https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/utils",
+    "scripts": {
+        "compile": "circomkit compile utils",
+        "setup": "circomkit setup utils",
+        "test": "mocha"
+    },
+    "dependencies": {
+        "circomlib": "^2.0.5"
+    },
+    "devDependencies": {
+        "circomkit": "^0.1.0",
+        "mocha": "^10.2.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

@@ -523,6 +523,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@zk-kit/utils.circom@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@zk-kit/utils.circom@workspace:packages/utils"
+  dependencies:
+    circomkit: "npm:^0.1.0"
+    circomlib: "npm:^2.0.5"
+    mocha: "npm:^10.2.0"
+  languageName: unknown
+  linkType: soft
+
 "@zk-kit/utils@npm:0.3.0":
   version: 0.3.0
   resolution: "@zk-kit/utils@npm:0.3.0"

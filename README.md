@@ -55,27 +55,101 @@
     <th>Package</th>
     <th>Version</th>
     <th>Downloads</th>
-    <th>Size</th>
     <tbody>
         <tr>
             <td>
-                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/circuits">
-                    @zk-kit/circuits
+                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/binary-merkle-root">
+                    @zk-kit/binary-merkle-root.circom
                 </a>
             </td>
             <td>
                 <!-- NPM version -->
-                <a href="https://npmjs.org/package/@zk-kit/circuits">
-                    <img src="https://img.shields.io/npm/v/@zk-kit/circuits.svg?style=flat-square" alt="NPM version" />
+                <a href="https://npmjs.org/package/@zk-kit/binary-merkle-root.circom">
+                    <img src="https://img.shields.io/npm/v/@zk-kit/binary-merkle-root.circom.svg?style=flat-square" alt="NPM version" />
                 </a>
             </td>
             <td>
                 <!-- Downloads -->
-                <a href="https://npmjs.org/package/@zk-kit/circuits">
-                    <img src="https://img.shields.io/npm/dm/@zk-kit/circuits.svg?style=flat-square" alt="Downloads" />
+                <a href="https://npmjs.org/package/@zk-kit/binary-merkle-root.circom">
+                    <img src="https://img.shields.io/npm/dm/@zk-kit/binary-merkle-root.circom.svg?style=flat-square" alt="Downloads" />
                 </a>
             </td>
-            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/ecdh">
+                    @zk-kit/ecdh.circom
+                </a>
+            </td>
+            <td>
+                <!-- NPM version -->
+                <a href="https://npmjs.org/package/@zk-kit/ecdh.circom">
+                    <img src="https://img.shields.io/npm/v/@zk-kit/ecdh.circom.svg?style=flat-square" alt="NPM version" />
+                </a>
+            </td>
+            <td>
+                <!-- Downloads -->
+                <a href="https://npmjs.org/package/@zk-kit/ecdh.circom">
+                    <img src="https://img.shields.io/npm/dm/@zk-kit/ecdh.circom.svg?style=flat-square" alt="Downloads" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/poseidon-cipher">
+                    @zk-kit/poseidon-cipher.circom
+                </a>
+            </td>
+            <td>
+                <!-- NPM version -->
+                <a href="https://npmjs.org/package/@zk-kit/poseidon-cipher.circom">
+                    <img src="https://img.shields.io/npm/v/@zk-kit/poseidon-cipher.circom.svg?style=flat-square" alt="NPM version" />
+                </a>
+            </td>
+            <td>
+                <!-- Downloads -->
+                <a href="https://npmjs.org/package/@zk-kit/poseidon-cipher.circom">
+                    <img src="https://img.shields.io/npm/dm/@zk-kit/poseidon-cipher.circom.svg?style=flat-square" alt="Downloads" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/poseidon-proof">
+                    @zk-kit/poseidon-proof.circom
+                </a>
+            </td>
+            <td>
+                <!-- NPM version -->
+                <a href="https://npmjs.org/package/@zk-kit/poseidon-proof.circom">
+                    <img src="https://img.shields.io/npm/v/@zk-kit/poseidon-proof.circom.svg?style=flat-square" alt="NPM version" />
+                </a>
+            </td>
+            <td>
+                <!-- Downloads -->
+                <a href="https://npmjs.org/package/@zk-kit/poseidon-proof.circom">
+                    <img src="https://img.shields.io/npm/dm/@zk-kit/poseidon-proof.circom.svg?style=flat-square" alt="Downloads" />
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/utils">
+                    @zk-kit/utils.circom
+                </a>
+            </td>
+            <td>
+                <!-- NPM version -->
+                <a href="https://npmjs.org/package/@zk-kit/utils.circom">
+                    <img src="https://img.shields.io/npm/v/@zk-kit/utils.circom.svg?style=flat-square" alt="NPM version" />
+                </a>
+            </td>
+            <td>
+                <!-- Downloads -->
+                <a href="https://npmjs.org/package/@zk-kit/utils.circom">
+                    <img src="https://img.shields.io/npm/dm/@zk-kit/utils.circom.svg?style=flat-square" alt="Downloads" />
+                </a>
+            </td>
         </tr>
     <tbody>
 </table>
