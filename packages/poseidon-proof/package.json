@@ -1,0 +1,31 @@
+{
+    "name": "@zk-kit/poseidon-proof.circom",
+    "version": "1.0.0-beta",
+    "description": "A circuit to prove the possession of Poseidon pre-images without revealing the pre-images themselves.",
+    "license": "MIT",
+    "files": [
+        "src/**/*.circom",
+        "!src/main",
+        "!src/test",
+        "LICENSE",
+        "README.md"
+    ],
+    "repository": "git@github.com:privacy-scaling-explorations/zk-kit.circom.git",
+    "homepage": "https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/poseidon-proof",
+    "scripts": {
+        "compile": "circomkit compile poseidon-proof",
+        "setup": "circomkit setup poseidon-proof",
+        "test": "mocha"
+    },
+    "dependencies": {
+        "circomlib": "^2.0.5"
+    },
+    "devDependencies": {
+        "circomkit": "^0.1.0",
+        "mocha": "^10.2.0",
+        "poseidon-lite": "^0.2.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
