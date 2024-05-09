@@ -43,7 +43,7 @@
     </h4>
 </div>
 
-| ZK-Kit is a set of libraries (plugins, algorithms or utility functions) that can be reused in different projects and zero-knowledge protocols, making it easier for developers to access user-friendly, tested, and documented code for common tasks. ZK-Kit provides a repository for each language. This repository only contains Circom code. |
+| ZK-Kit is a set of libraries (plugins, algorithms or utility functions) that can be reused in different projects and zero-knowledge protocols, making it easier for developers to access user-friendly, tested, and documented code for common tasks. ZK-Kit provides a repository for each language. This repository only contains Circom templates. |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 > [!IMPORTANT]  
