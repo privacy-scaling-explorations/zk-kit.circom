@@ -5488,9 +5488,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zk-kit@workspace:.":
+"zk-kit.circom@workspace:.":
   version: 0.0.0-use.local
-  resolution: "zk-kit@workspace:."
+  resolution: "zk-kit.circom@workspace:."
   dependencies:
     "@commitlint/cli": "npm:^18.6.1"
     "@commitlint/config-conventional": "npm:^18.6.2"
