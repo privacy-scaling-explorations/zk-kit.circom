@@ -1,7 +1,7 @@
 {
     "name": "@zk-kit/poseidon-proof.circom",
     "version": "1.0.0-beta",
-    "description": "A circuit to prove the possession of Poseidon pre-images without revealing the pre-images themselves.",
+    "description": "A circuit to prove the ownership of Poseidon pre-images without revealing them.",
     "license": "MIT",
     "files": [
         "src/**/*.circom",
