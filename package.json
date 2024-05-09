@@ -1,5 +1,5 @@
 {
-    "name": "zk-kit",
+    "name": "zk-kit.circom",
     "description": "A monorepo of reusable Circom circuits.",
     "license": "MIT",
     "repository": "git@github.com:privacy-scaling-explorations/zk-kit.circom.git",
