@@ -43,5 +43,5 @@ jobs:
                         - packages/**/*.{circom,json,ts}
 
             - if: steps.changed-files.outputs.circuits_any_changed == 'true'
-            - name: Test circuits
+              name: Test circuits
               run: yarn test
