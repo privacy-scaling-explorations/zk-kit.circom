@@ -58,7 +58,7 @@
     <tbody>
         <tr>
             <td>
-                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/binary-merkle-root">
+                <a href="https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/binary-merkle-root">
                     @zk-kit/binary-merkle-root.circom
                 </a>
             </td>
@@ -77,7 +77,7 @@
         </tr>
         <tr>
             <td>
-                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/ecdh">
+                <a href="https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/ecdh">
                     @zk-kit/ecdh.circom
                 </a>
             </td>
@@ -96,7 +96,7 @@
         </tr>
         <tr>
             <td>
-                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/poseidon-cipher">
+                <a href="https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/poseidon-cipher">
                     @zk-kit/poseidon-cipher.circom
                 </a>
             </td>
@@ -115,7 +115,7 @@
         </tr>
         <tr>
             <td>
-                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/poseidon-proof">
+                <a href="https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/poseidon-proof">
                     @zk-kit/poseidon-proof.circom
                 </a>
             </td>
@@ -134,7 +134,7 @@
         </tr>
         <tr>
             <td>
-                <a href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/utils">
+                <a href="https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/utils">
                     @zk-kit/utils.circom
                 </a>
             </td>
