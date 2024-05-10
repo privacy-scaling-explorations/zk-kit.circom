@@ -9,7 +9,7 @@
     "scripts": {
         "compile": "yarn workspaces foreach -A -t --no-private run compile",
         "test": "yarn workspaces foreach -A -t --no-private run test",
-        "version:bump": "yarn workspace @zk-kit/${0}.circom version ${1} && yarn remove:stable-version-field ${0}.circom && NO_HOOK=1 git commit -am \"chore(${0}): v${1}\" && git tag ${0}.circom-v${1}",
+        "version:bump": "yarn workspace @zk-kit/${0}.circom version ${1} && yarn remove:stable-version-field ${0} && NO_HOOK=1 git commit -am \"chore(${0}): v${1}\" && git tag ${0}.circom-v${1}",
         "version:publish": "yarn workspaces foreach -A --no-private npm publish --tolerate-republish --access public",
         "version:release": "changelogithub",
         "format:prettier": "prettier -c .",

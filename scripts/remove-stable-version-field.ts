@@ -5,10 +5,6 @@ async function main() {
 
     let filePath = `${projectDirectory}/package.json`
 
-    if (existsSync(`${projectDirectory}/contracts/package.json`)) {
-        filePath = `${projectDirectory}/contracts/package.json`
-    }
-
     const content = JSON.parse(readFileSync(filePath, "utf8"))
 
     if (content.stableVersion) {
