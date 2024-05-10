@@ -49,3 +49,19 @@ or yarn:
 ```bash
 yarn add @zk-kit/utils.circom
 ```
+
+## 📜 Usage
+
+Try out the circuit with Circom locally:
+
+```circom
+include "float.circom";
+include "safe-comparators.circom";
+include "unpack-element.circom";
+
+component main = Shift(3);
+```
+
+```bash
+circom -l ./node_modules/@zk-kit/utils.circom/src -l ./node_modules/circomlib/circuits your-circuit.circom
+```

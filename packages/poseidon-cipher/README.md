@@ -49,3 +49,20 @@ or yarn:
 ```bash
 yarn add @zk-kit/poseidon-cipher.circom
 ```
+
+## 📜 Usage
+
+Try out the circuit with Circom locally:
+
+```circom
+include "poseidon-cipher.circom";
+
+component main = PoseidonDecrypt(3);
+// component main = PoseidonDecryptWithoutCheck(3);
+// component main = PoseidonDecryptIterations(3);
+// component main = PoseidonPerm(2);
+```
+
+```bash
+circom -l ./node_modules/@zk-kit/poseidon-cipher.circom/src -l ./node_modules/circomlib/circuits your-circuit.circom
+```

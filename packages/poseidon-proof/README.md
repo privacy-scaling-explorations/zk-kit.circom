@@ -49,3 +49,17 @@ or yarn:
 ```bash
 yarn add @zk-kit/poseidon-proof.circom
 ```
+
+## 📜 Usage
+
+Try out the circuit with Circom locally:
+
+```circom
+include "poseidon-proof.circom";
+
+component main = PoseidonProof(3);
+```
+
+```bash
+circom -l ./node_modules/@zk-kit/poseidon-proof.circom/src -l ./node_modules/circomlib/circuits your-circuit.circom
+```

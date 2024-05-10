@@ -49,3 +49,17 @@ or yarn:
 ```bash
 yarn add @zk-kit/ecdh.circom
 ```
+
+## 📜 Usage
+
+Try out the circuit with Circom locally:
+
+```circom
+include "ecdh.circom";
+
+component main = Ecdh();
+```
+
+```bash
+circom -l ./node_modules/@zk-kit/echd.circom/src -l ./node_modules/circomlib/circuits your-circuit.circom
+```

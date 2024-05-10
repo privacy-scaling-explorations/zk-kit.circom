@@ -49,3 +49,18 @@ or yarn:
 ```bash
 yarn add @zk-kit/binary-merkle-root.circom
 ```
+
+## 📜 Usage
+
+Try out the circuit with [zkREPL](https://zkrepl.dev/?gist=fffaac93085b9a1ade2fb711706a9e98) on your browser or use
+Circom locally:
+
+```circom
+include "binary-merkle-root.circom";
+
+component main = BinaryMerkleRoot(5);
+```
+
+```bash
+circom -l ./node_modules/@zk-kit/binary-merkle-root.circom/src -l ./node_modules/circomlib/circuits your-circuit.circom
+```
