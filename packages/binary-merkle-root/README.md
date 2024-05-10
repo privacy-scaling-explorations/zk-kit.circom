@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/badge/project-zk--kit-blue.svg?style=flat-square">
     </a>
     <a href="https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/binary-merkle-root/LICENSE">
-        <img alt="NPM license" src="https://img.shields.io/npm/l/%40zk-kit%2Fbinary-merkle-root?style=flat-square">
+        <img alt="NPM license" src="https://img.shields.io/npm/l/%40zk-kit%2Fbinary-merkle-root.circom?style=flat-square">
     </a>
     <a href="https://www.npmjs.com/package/@zk-kit/binary-merkle-root.circom">
         <img alt="NPM version" src="https://img.shields.io/npm/v/@zk-kit/binary-merkle-root.circom?style=flat-square" />

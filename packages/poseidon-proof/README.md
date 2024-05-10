@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/badge/project-zk--kit-blue.svg?style=flat-square">
     </a>
     <a href="https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/poseidon-proof/LICENSE">
-        <img alt="NPM license" src="https://img.shields.io/npm/l/%40zk-kit%2Fposeidon-proof?style=flat-square">
+        <img alt="NPM license" src="https://img.shields.io/npm/l/%40zk-kit%2Fposeidon-proof.circom?style=flat-square">
     </a>
     <a href="https://www.npmjs.com/package/@zk-kit/poseidon-proof.circom">
         <img alt="NPM version" src="https://img.shields.io/npm/v/@zk-kit/poseidon-proof.circom?style=flat-square" />
