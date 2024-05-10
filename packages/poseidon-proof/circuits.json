@@ -1,0 +1,8 @@
+{
+    "poseidon-proof": {
+        "file": "poseidon-proof",
+        "template": "PoseidonProof",
+        "pubs": ["scope"],
+        "params": [1]
+    }
+}

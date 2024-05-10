@@ -1,0 +1,33 @@
+{
+    "name": "@zk-kit/ecdh.circom",
+    "version": "1.0.0-beta",
+    "description": "A circuit to generate a shared secret from a private key and a public key on the Baby Jubjub curve.",
+    "license": "MIT",
+    "files": [
+        "src/**/*.circom",
+        "!src/main",
+        "!src/test",
+        "LICENSE",
+        "README.md"
+    ],
+    "repository": "git@github.com:privacy-scaling-explorations/zk-kit.circom.git",
+    "homepage": "https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/ecdh",
+    "scripts": {
+        "compile": "circomkit compile ecdh",
+        "setup": "circomkit setup ecdh",
+        "test": "mocha"
+    },
+    "dependencies": {
+        "circomlib": "^2.0.5"
+    },
+    "devDependencies": {
+        "@zk-kit/baby-jubjub": "^1.0.0-beta",
+        "@zk-kit/eddsa-poseidon": "^1.0.0-beta",
+        "@zk-kit/utils": "^1.0.0-beta.4",
+        "circomkit": "^0.1.0",
+        "mocha": "^10.2.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

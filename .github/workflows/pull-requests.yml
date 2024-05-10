@@ -1,0 +1,38 @@
+name: pull-requests
+
+on:
+    pull_request:
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+    cancel-in-progress: true
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  cache: yarn
+
+            # https://github.com/iden3/circuits/blob/8fffb6609ecad0b7bcda19bb908bdb544bdb3cf7/.github/workflows/main.yml#L18-L22
+            # https://stackoverflow.com/a/78377916
+            - name: Setup Circom deps
+              run: |
+                  sudo rm /etc/apt/sources.list.d/microsoft-prod.list
+                  sudo apt-get update && sudo apt-get install -y nlohmann-json3-dev libgmp-dev nasm build-essential
+
+            - name: Setup Circom
+              run: wget https://github.com/iden3/circom/releases/latest/download/circom-linux-amd64 && sudo mv ./circom-linux-amd64 /usr/bin/circom && sudo chmod +x /usr/bin/circom
+
+            - name: Install dependencies
+              run: yarn
+
+            - name: Test circuits
+              run: yarn test

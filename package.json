@@ -1,0 +1,44 @@
+{
+    "name": "zk-kit.circom",
+    "description": "A monorepo of reusable Circom circuits.",
+    "license": "MIT",
+    "repository": "git@github.com:privacy-scaling-explorations/zk-kit.circom.git",
+    "homepage": "https://github.com/privacy-scaling-explorations/zk-kit.circom",
+    "bugs": "https://github.com/privacy-scaling-explorations/zk-kit.circom/issues",
+    "private": true,
+    "scripts": {
+        "compile": "yarn workspaces foreach -A -t --no-private run compile",
+        "test": "yarn workspaces foreach -A -t --no-private run test",
+        "version:bump": "yarn workspace @zk-kit/${0}.circom version ${1} && yarn remove:stable-version-field ${0}.circom && NO_HOOK=1 git commit -am \"chore(${0}): v${1}\" && git tag ${0}.circom-v${1}",
+        "version:publish": "yarn workspaces foreach -A --no-private npm publish --tolerate-republish --access public",
+        "version:release": "changelogithub",
+        "format:prettier": "prettier -c .",
+        "format:prettier:write": "prettier -w .",
+        "remove:stable-version-field": "ts-node scripts/remove-stable-version-field.ts ${0} && yarn format:prettier:write",
+        "postinstall": "husky && git config --local core.editor cat"
+    },
+    "keywords": [
+        "zk-kit",
+        "circom",
+        "monorepo",
+        "zero-knowledge",
+        "zk-snarks"
+    ],
+    "workspaces": [
+        "packages/*"
+    ],
+    "packageManager": "yarn@4.2.1",
+    "devDependencies": {
+        "@commitlint/cli": "^18.6.1",
+        "@commitlint/config-conventional": "^18.6.2",
+        "@types/mocha": "^10.0.6",
+        "@types/node": "^20",
+        "changelogithub": "patch:changelogithub@npm%3A0.13.3#~/.yarn/patches/changelogithub-npm-0.13.3-1783949906.patch",
+        "czg": "^1.9.1",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "prettier": "^3.2.5",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
+    }
+}

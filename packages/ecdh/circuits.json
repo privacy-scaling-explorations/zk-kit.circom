@@ -1,0 +1,8 @@
+{
+    "ecdh": {
+        "file": "ecdh",
+        "template": "Ecdh",
+        "pubs": ["publicKey"],
+        "params": []
+    }
+}

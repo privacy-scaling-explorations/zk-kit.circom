@@ -1,0 +1,44 @@
+{
+    "name": "@zk-kit/utils.circom",
+    "version": "1.0.0-beta",
+    "description": "An utility library of general-purpose Circom circuits.",
+    "license": "MIT",
+    "files": [
+        "src/**/*.circom",
+        "!src/main",
+        "!src/test",
+        "LICENSE",
+        "README.md"
+    ],
+    "repository": "git@github.com:privacy-scaling-explorations/zk-kit.circom.git",
+    "homepage": "https://github.com/privacy-scaling-explorations/zk-kit.circom/tree/main/packages/utils",
+    "scripts": {
+        "compile": "yarn run-s 'compile:*'",
+        "compile:msb": "circomkit compile msb",
+        "compile:shift": "circomkit compile shift",
+        "compile:integer-division": "circomkit compile integer-division",
+        "compile:to-float": "circomkit compile to-float",
+        "compile:division-from-float": "circomkit compile division-from-float",
+        "compile:division-from-normal": "circomkit compile division-from-normal",
+        "compile:multiplication-from-float": "circomkit compile multiplication-from-float",
+        "compile:multiplication-from-normal": "circomkit compile multiplication-from-normal",
+        "compile:safe-less-than": "circomkit compile safe-less-than",
+        "compile:safe-less-eq-than": "circomkit compile safe-less-eq-than",
+        "compile:safe-greater-than": "circomkit compile safe-greater-than",
+        "compile:safe-greater-eq-than": "circomkit compile safe-greater-eq-than",
+        "compile:unpack-element": "circomkit compile unpack-element",
+        "setup": "circomkit setup utils",
+        "test": "mocha"
+    },
+    "dependencies": {
+        "circomlib": "^2.0.5"
+    },
+    "devDependencies": {
+        "circomkit": "^0.1.0",
+        "mocha": "^10.2.0",
+        "npm-run-all": "^4.1.5"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
