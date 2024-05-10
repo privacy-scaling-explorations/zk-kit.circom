@@ -1,6 +1,6 @@
 {
     "name": "@zk-kit/utils.circom",
-    "version": "1.0.0-beta",
+    "version": "1.0.0-beta.1",
     "description": "An utility library of general-purpose Circom circuits.",
     "license": "MIT",
     "files": [
