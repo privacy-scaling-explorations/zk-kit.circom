@@ -11,7 +11,7 @@ template SafeLessThan(n) {
     signal input in[2];
     signal output out;
 
-    // Convert both inputs to their bit representations to ensure 
+    // Convert both inputs to their bit representations to ensure
     // they fit within 'n' bits.
     var n2b1[n];
     n2b1 = Num2Bits(n)(in[0]);
@@ -54,7 +54,7 @@ template SafeGreaterEqThan(n) {
     // Output signal indicating comparison result.
     signal output out;
 
-    // Invert the inputs and adjust for equality in SafeLessThan to 
+    // Invert the inputs and adjust for equality in SafeLessThan to
     // check if in[1] is less than or equal to in[0].
     out <== SafeLessThan(n)([in[1], in[0] + 1]);
 }
