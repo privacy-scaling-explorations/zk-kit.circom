@@ -1,6 +1,6 @@
 {
     "name": "@zk-kit/poseidon-cipher.circom",
-    "version": "1.0.0-beta",
+    "version": "1.0.0-beta.1",
     "description": "A set of Circom templates to decrypt and perform permutations with Poseidon.",
     "license": "MIT",
     "files": [
