@@ -1,6 +1,6 @@
 {
     "name": "@zk-kit/binary-merkle-root.circom",
-    "version": "1.0.0-beta",
+    "version": "1.0.0-beta.1",
     "description": "A circuit to calculate the root of a binary Merkle tree using a provided proof-of-membership.",
     "license": "MIT",
     "files": [
