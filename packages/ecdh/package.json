@@ -1,6 +1,6 @@
 {
     "name": "@zk-kit/ecdh.circom",
-    "version": "1.0.0-beta",
+    "version": "1.0.0-beta.1",
     "description": "A circuit to generate a shared secret from a private key and a public key on the Baby Jubjub curve.",
     "license": "MIT",
     "files": [
