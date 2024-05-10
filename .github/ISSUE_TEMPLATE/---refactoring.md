@@ -1,5 +1,5 @@
 ---
-name: "\U0001267B Refactoring"
+name: "\u267B Refactoring"
 about: Suggest any improvements for this project
 title: ''
 labels: 'refactoring :recycle:'
