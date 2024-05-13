@@ -33,8 +33,9 @@
     </h4>
 </div>
 
-> [!WARNING]  
-> This library has **not** been audited.
+> [!INFO]  
+> This library has been audited as part of Semaphore V4: https://semaphore.pse.dev/Semaphore_4.0.0_Audit.pdf. The source
+> has been moved from zk-kit to zk-kit.circom but remained the same.
 
 ## 🛠 Install
 

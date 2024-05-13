@@ -55,6 +55,7 @@
     <th>Package</th>
     <th>Version</th>
     <th>Downloads</th>
+    <th>Audit</th>
     <tbody>
         <tr>
             <td>
@@ -72,6 +73,12 @@
                 <!-- Downloads -->
                 <a href="https://npmjs.org/package/@zk-kit/binary-merkle-root.circom">
                     <img src="https://img.shields.io/npm/dm/@zk-kit/binary-merkle-root.circom.svg?style=flat-square" alt="Downloads" />
+                </a>
+            </td>
+            <td>
+                <!-- Audit -->
+                <a href="https://semaphore.pse.dev/Semaphore_4.0.0_Audit.pdf">
+                    Semaphore_4.0.0_Audit.pdf
                 </a>
             </td>
         </tr>
@@ -93,6 +100,7 @@
                     <img src="https://img.shields.io/npm/dm/@zk-kit/ecdh.circom.svg?style=flat-square" alt="Downloads" />
                 </a>
             </td>
+            <td></td>
         </tr>
         <tr>
             <td>
@@ -112,6 +120,7 @@
                     <img src="https://img.shields.io/npm/dm/@zk-kit/poseidon-cipher.circom.svg?style=flat-square" alt="Downloads" />
                 </a>
             </td>
+            <td></td>
         </tr>
         <tr>
             <td>
@@ -131,6 +140,7 @@
                     <img src="https://img.shields.io/npm/dm/@zk-kit/poseidon-proof.circom.svg?style=flat-square" alt="Downloads" />
                 </a>
             </td>
+            <td></td>
         </tr>
         <tr>
             <td>
@@ -150,6 +160,7 @@
                     <img src="https://img.shields.io/npm/dm/@zk-kit/utils.circom.svg?style=flat-square" alt="Downloads" />
                 </a>
             </td>
+            <td></td>
         </tr>
     <tbody>
 </table>
