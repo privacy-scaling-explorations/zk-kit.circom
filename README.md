@@ -1,8 +1,12 @@
 <p align="center">
     <h1 align="center">
-        🧰 ZK-Kit (Circom)
+      <picture>
+        <source media="(prefers-color-scheme: light)" srcset="https://github.com/privacy-scaling-explorations/zk-kit.circom/assets/11427903/75a1b761-34b7-47e9-b7a7-6ed9a8044a8f">
+        <source media="(prefers-color-scheme: dark)" srcset="https://github.com/privacy-scaling-explorations/zk-kit.circom/assets/11427903/efd24510-3cff-4c7e-b660-b27b961d797e">
+        <img width="250" alt="ZK-Kit logo" src="https://github.com/privacy-scaling-explorations/zk-kit.circom/assets/11427903/75a1b761-34b7-47e9-b7a7-6ed9a8044a8f">
+      </picture>
+      <sub>Circom</sub> 
     </h1>
-    <p align="center">A monorepo of reusable Circom circuits.</p>
 </p>
 
 <p align="center">
