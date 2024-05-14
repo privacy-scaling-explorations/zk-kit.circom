@@ -49,6 +49,12 @@
 > [!IMPORTANT]  
 > Installation of [Circom](https://docs.circom.io/getting-started/installation/) required for circuit tests.
 
+## 🗂️ Repositories
+
+-   Javascript & Solidity: https://github.com/privacy-scaling-explorations/zk-kit
+-   Circom: https://github.com/privacy-scaling-explorations/zk-kit.circom
+-   Noir: https://github.com/privacy-scaling-explorations/zk-kit.noir
+
 ## 📦 Packages
 
 <table>
