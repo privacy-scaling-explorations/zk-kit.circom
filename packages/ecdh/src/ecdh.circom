@@ -5,11 +5,10 @@ include "./bitify.circom";
 include "./escalarmulany.circom";
 
 // ECDH Is a a template which allows to generate a shared secret
-// from a private key and a public key
-// on the baby jubjub curve
+// from a private key and a public key on the baby jubjub curve
 // It is important that the private key is hashed and pruned first
 // which can be accomplished using the function
-// deriveScalar from @zk-kit/baby-jubjub
+// deriveSecretScalar from @zk-kit/eddsa-poseidon.
 template Ecdh() {
     // the private key must pass through deriveScalar first
     signal input privateKey;
