@@ -12,8 +12,8 @@
         "version:bump": "yarn workspace @zk-kit/${0}.circom version ${1} && yarn remove:stable-version-field ${0} && NO_HOOK=1 git commit -am \"chore(${0}): v${1}\" && git tag ${0}.circom-v${1}",
         "version:publish": "yarn workspaces foreach -A --no-private npm publish --tolerate-republish --access public",
         "version:release": "changelogithub",
-        "format:prettier": "prettier -c .",
-        "format:prettier:write": "prettier -w .",
+        "format": "prettier -c .",
+        "format:write": "prettier -w .",
         "remove:stable-version-field": "ts-node scripts/remove-stable-version-field.ts ${0} && yarn format:prettier:write",
         "postinstall": "husky && git config --local core.editor cat"
     },
