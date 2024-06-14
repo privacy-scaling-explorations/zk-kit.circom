@@ -4,10 +4,10 @@
 
 # When someone opens a pull request that only modifies specific packages,
 # only the following users and not the default owners defined above will be
-requested for a review.
+# requested for a review.
 /packages/binary-merkle-root/ @cedoor @vplasencia
 /packages/ecdh/ @0xjei @ctrlc03
 /packages/poseidon-cipher/ @ctrlc03
 /packages/poseidon-proof/ @cedoor @vplasencia @0xjei
-/packages/utils @0xjei
-/packages/lazytower @LCamel
+/packages/utils/ @0xjei
+/packages/lazytower/ @LCamel
