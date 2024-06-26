@@ -1,4 +1,4 @@
-import { LeanIMT } from "@zk-kit/imt"
+import { LeanIMT } from "@zk-kit/lean-imt"
 import { Circomkit } from "circomkit"
 import { readFileSync } from "fs"
 import path from "path"

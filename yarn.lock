@@ -403,21 +403,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zk-kit/baby-jubjub@npm:0.2.0":
-  version: 0.2.0
-  resolution: "@zk-kit/baby-jubjub@npm:0.2.0"
+"@zk-kit/baby-jubjub@npm:1.0.1, @zk-kit/baby-jubjub@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@zk-kit/baby-jubjub@npm:1.0.1"
   dependencies:
-    "@zk-kit/utils": "npm:0.3.0"
-  checksum: 10/764804bd96adaa2b7df3110d64ef327e6ab0d2c4bf0fe60a81ed6be3770ee6b6e74d1f67e574be23bd830aa1c8ce94137f909d5d4fde7005bc50ca82d0ee6c10
-  languageName: node
-  linkType: hard
-
-"@zk-kit/baby-jubjub@npm:1.0.0-beta, @zk-kit/baby-jubjub@npm:^1.0.0-beta":
-  version: 1.0.0-beta
-  resolution: "@zk-kit/baby-jubjub@npm:1.0.0-beta"
-  dependencies:
-    "@zk-kit/utils": "npm:1.0.0-beta"
-  checksum: 10/417b15946916a398117e55c7293391c3231d5d9b59deda7a745e80ca8816fa79048bcfc0dec9ed490fec9599e1bee1d73c3148b53e373a1faea57f20d5af9afd
+    "@zk-kit/utils": "npm:1.0.0"
+  checksum: 10/d9b97b773351c0524cbac3e4cb5721762865198483ea91ffdc7cd05bc4a7c4f3d1ec0b639a04cdcad4e71c60eed82bb1e32060531e2e7b11df6c1172024e03d1
   languageName: node
   linkType: hard
 
@@ -425,7 +416,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zk-kit/binary-merkle-root.circom@workspace:packages/binary-merkle-root"
   dependencies:
-    "@zk-kit/imt": "npm:^2.0.0-beta.4"
+    "@zk-kit/lean-imt": "npm:^2.0.1"
     circomkit: "npm:^0.1.0"
     circomlib: "npm:^2.0.5"
     mocha: "npm:^10.2.0"
@@ -437,30 +428,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@zk-kit/ecdh.circom@workspace:packages/ecdh"
   dependencies:
-    "@zk-kit/baby-jubjub": "npm:^1.0.0-beta"
-    "@zk-kit/eddsa-poseidon": "npm:^1.0.0-beta"
-    "@zk-kit/utils": "npm:^1.0.0-beta.4"
+    "@zk-kit/baby-jubjub": "npm:^1.0.1"
+    "@zk-kit/eddsa-poseidon": "npm:^1.0.2"
+    "@zk-kit/utils": "npm:^1.2.0"
     circomkit: "npm:^0.1.0"
     circomlib: "npm:^2.0.5"
     mocha: "npm:^10.2.0"
   languageName: unknown
   linkType: soft
 
-"@zk-kit/eddsa-poseidon@npm:^1.0.0-beta":
-  version: 1.0.0-beta
-  resolution: "@zk-kit/eddsa-poseidon@npm:1.0.0-beta"
+"@zk-kit/eddsa-poseidon@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@zk-kit/eddsa-poseidon@npm:1.0.2"
   dependencies:
-    "@zk-kit/baby-jubjub": "npm:1.0.0-beta"
-    "@zk-kit/utils": "npm:1.0.0-beta.4"
+    "@zk-kit/baby-jubjub": "npm:1.0.1"
+    "@zk-kit/utils": "npm:1.0.0"
     buffer: "npm:6.0.3"
-  checksum: 10/630986ae3d32debf796a29eed7a6e1cd8c3dd8bae48f58f2756c5d92f524d9d2bc586662da7726d9fe40c2e2a43e4011b64916a75f4b61c803ca7255bd5e3670
-  languageName: node
-  linkType: hard
-
-"@zk-kit/imt@npm:^2.0.0-beta.4":
-  version: 2.0.0-beta.4
-  resolution: "@zk-kit/imt@npm:2.0.0-beta.4"
-  checksum: 10/9e042472c81bb362ad4580eb3ab69b4d07bacc224d920a5539ed326855e99c70824cc795732642318c6ea2533b48e980009968fe996e4bfde9dbfbbf4a3e14bb
+  checksum: 10/4b4e984a96c5dbc95a8cf36ceb8b3712e37291c1473d01b0e22c15a33311e9cf88c86175d878dacda1852cc905cd2074aaa76defeaed33490be3964ca7a53372
   languageName: node
   linkType: hard
 
@@ -488,27 +472,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zk-kit/lean-imt@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@zk-kit/lean-imt@npm:2.0.1"
+  dependencies:
+    "@zk-kit/utils": "npm:1.0.0"
+  checksum: 10/33d03a20c3ce6270036d4cc0a96100b4f6e17f373688595937d2a0863883562b648a768c11ab938fd83ed65d7a70b542db647e3d9e0b5e050c02efc5df0543ce
+  languageName: node
+  linkType: hard
+
 "@zk-kit/poseidon-cipher.circom@workspace:packages/poseidon-cipher":
   version: 0.0.0-use.local
   resolution: "@zk-kit/poseidon-cipher.circom@workspace:packages/poseidon-cipher"
   dependencies:
-    "@zk-kit/baby-jubjub": "npm:^1.0.0-beta"
-    "@zk-kit/eddsa-poseidon": "npm:^1.0.0-beta"
-    "@zk-kit/poseidon-cipher": "npm:^0.3.0"
-    "@zk-kit/utils": "npm:^1.0.0-beta.4"
+    "@zk-kit/baby-jubjub": "npm:^1.0.1"
+    "@zk-kit/eddsa-poseidon": "npm:^1.0.2"
+    "@zk-kit/poseidon-cipher": "npm:^0.3.1"
+    "@zk-kit/utils": "npm:^1.2.0"
     circomkit: "npm:^0.1.0"
     circomlib: "npm:^2.0.5"
     mocha: "npm:^10.2.0"
   languageName: unknown
   linkType: soft
 
-"@zk-kit/poseidon-cipher@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@zk-kit/poseidon-cipher@npm:0.3.0"
+"@zk-kit/poseidon-cipher@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@zk-kit/poseidon-cipher@npm:0.3.1"
   dependencies:
-    "@zk-kit/baby-jubjub": "npm:0.2.0"
-    "@zk-kit/utils": "npm:0.3.0"
-  checksum: 10/9ca15eeb6133c6bcd21bf4709725d3e625a1f470efb7ba6cf7823f79d6ba8c3d083e5c9631595b120ef0c73f14970ae55beaaf25dd4e216f160b0250031edefa
+    "@zk-kit/baby-jubjub": "npm:1.0.1"
+    "@zk-kit/utils": "npm:1.0.0"
+  checksum: 10/194d849e035f07720bc7e99b3d5009206cdfc31d1056b6db2e388f88167d4cdaae6421cf759bf0dc60ad1a331b8fb92eb521388e49b2fa30252e91a462fb791b
   languageName: node
   linkType: hard
 
@@ -534,28 +527,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@zk-kit/utils@npm:0.3.0":
-  version: 0.3.0
-  resolution: "@zk-kit/utils@npm:0.3.0"
-  checksum: 10/aa889d4ad2f88930a327bf987c95f8b9b4ece0b39b6f7685d14d1fd3803475e6900a9db489f876ae9d4b3a1e4cb99313870969c9b67b089d45b75f8faf44ffd5
+"@zk-kit/utils@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@zk-kit/utils@npm:1.0.0"
+  dependencies:
+    buffer: "npm:^6.0.3"
+  checksum: 10/a471025ca4c69a825bebf2c68a0d83c55c345c8843f28eeb958f1e2aa549aaa982939c1d6d819dda337601163064f382e450d09103ba4d9a0525281a0a23696b
   languageName: node
   linkType: hard
 
-"@zk-kit/utils@npm:1.0.0-beta":
-  version: 1.0.0-beta
-  resolution: "@zk-kit/utils@npm:1.0.0-beta"
+"@zk-kit/utils@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@zk-kit/utils@npm:1.2.0"
   dependencies:
     buffer: "npm:^6.0.3"
-  checksum: 10/97e2c5c703e6c5ffd43149e8f92399a9511b6042d90b394c3340afcac179be8115c0f27ff26e5f8ea38321d31ef8fedfdd5bc9b55b5e051ab8b87c2940428651
-  languageName: node
-  linkType: hard
-
-"@zk-kit/utils@npm:1.0.0-beta.4, @zk-kit/utils@npm:^1.0.0-beta.4":
-  version: 1.0.0-beta.4
-  resolution: "@zk-kit/utils@npm:1.0.0-beta.4"
-  dependencies:
-    buffer: "npm:^6.0.3"
-  checksum: 10/6e9ba05bca4db2fd1c08c8a4dfd3c4ff5bcab205d0fb679278898c40d36cd4d07bbc0d33ac1c97a98e4110ff0370d1138f31fc1f20a6d3914b41d8c063fa1df3
+  checksum: 10/4c0b37d64b28a6cc33c901a0c59325b1fe9c31e6519eaefe4aa6028ae9cb85e97f047976942875face030a1835d5c955ea546d7dc4fcf9d35df79192ee2502f3
   languageName: node
   linkType: hard
 
