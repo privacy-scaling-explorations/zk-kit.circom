@@ -43,7 +43,7 @@ jobs:
                   tool: circomspect
 
             - name: Analyze circuits
-              run: circomspect packages/*/src -L ./node_modules/circomlib/circuits
+              run: yarn lint
 
     test:
         if: needs.changed-files.outputs.any_changed == 'true'
