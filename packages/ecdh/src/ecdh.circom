@@ -1,8 +1,8 @@
 pragma circom 2.1.5;
 
 // circomlib imports
-include "./bitify.circom";
-include "./escalarmulany.circom";
+include "bitify.circom";
+include "escalarmulany.circom";
 
 // ECDH Is a a template which allows to generate a shared secret
 // from a private key and a public key on the baby jubjub curve

@@ -205,7 +205,16 @@ cd zk-kit.circom && yarn
 
 ## 📜 Usage
 
-### Code formatting
+### Code quality and formatting
+
+Install and run [Circomspect](https://github.com/trailofbits/circomspect) to analyze the code and catch bugs:
+
+```bash
+yarn lint
+```
+
+> [!WARNING]  
+> You need to install Circomspect with `cargo install circomspect` to run this command.
 
 Run [Prettier](https://prettier.io/) to check formatting rules:
 

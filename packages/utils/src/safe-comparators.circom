@@ -1,6 +1,6 @@
 pragma circom 2.0.0;
 
-include "./bitify.circom";
+include "bitify.circom";
 
 // Template for safely comparing if one input is less than another,
 // ensuring inputs are within a specified bit-length.

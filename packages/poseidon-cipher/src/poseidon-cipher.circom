@@ -2,22 +2,22 @@
 // All credits to the original authors
 pragma circom 2.1.5;
 
-// we use this file with a different name because 
+// we use this file with a different name because
 // the poseidon_old implementation of circomlib
 // imports the new version of constants
 // so we'd have a name clash if we used the same name
 // for the constants
-include "./poseidon-constants-old.circom";
+include "poseidon-constants-old.circom";
 // we import this for util functions like Ark, Mix, Sigma
-include "./poseidon_old.circom";
-include "./comparators.circom";
+include "poseidon_old.circom";
+include "comparators.circom";
 
 // Poseidon decryption circuit
 // param length: length of the input
 // This will fail to generate a proof if the ciphertext
 // or any of the other inputs are invalid
 template PoseidonDecrypt(length) {
-    // the length of the decrypted output 
+    // the length of the decrypted output
     // must be a multiple of 3
     // e.g. if length == 4, decryptedLength == 6
     var decryptedLength = length;
@@ -55,14 +55,14 @@ template PoseidonDecrypt(length) {
             decrypted[decryptedLength - 2] === 0;
         }
     }
-} 
+}
 
 // Decrypt a ciphertext without checking if the last ciphertext element or
 // whether the last 3 - (l mod 3) elements are 0. This is useful in
 // applications where you do not want an invalid decryption to prevent the
 // generation of a proof.
 template PoseidonDecryptWithoutCheck(length) {
-    // the length of the decrypted output 
+    // the length of the decrypted output
     // must be a multiple of 3
     // e.g. if length == 4, decryptedLength == 6
     var decryptedLength = length;
@@ -90,7 +90,7 @@ template PoseidonDecryptWithoutCheck(length) {
 
 // Iteratively decrypt a ciphertext
 template PoseidonDecryptIterations(length) {
-    // if calling this template directly we need to 
+    // if calling this template directly we need to
     // ensure that the ciphertext length is a multiple of 3
     var decryptedLength = length;
     while (decryptedLength % 3 != 0) {
@@ -101,7 +101,7 @@ template PoseidonDecryptIterations(length) {
     signal input ciphertext[decryptedLength + 1];
     // nonce passed in while encrypting
     signal input nonce;
-    // the decryption key 
+    // the decryption key
     signal input key[2];
 
     signal output decrypted[decryptedLength];
@@ -115,7 +115,7 @@ template PoseidonDecryptIterations(length) {
     lt.in[1] <== two128;
     lt.out === 1;
 
-    // calculate the number of iterations 
+    // calculate the number of iterations
     // needed for the decryption
     // process
     // \ is integer division
@@ -126,15 +126,15 @@ template PoseidonDecryptIterations(length) {
     // iterate poseidon on the initial state
     strategies[0] = PoseidonPerm(4);
 
-    // we need to set the initial state to 
+    // we need to set the initial state to
     // [0, key[0], key[1], nonce + (length * 2^128)]
-    // so we create one extra component 
+    // so we create one extra component
     // and run a permutation so we can set the state
     strategies[0].inputs[0] <== 0;
     strategies[0].inputs[1] <== key[0];
     strategies[0].inputs[2] <== key[1];
     strategies[0].inputs[3] <== nonce + (length * two128);
-    
+
     // loop for n iterations
     for (var i = 0; i < n; i++) {
         // release three elements of the message
@@ -143,18 +143,18 @@ template PoseidonDecryptIterations(length) {
         }
 
         // create a new PoseidonPerm component
-        // at the next index 
-        // because we already passed all values to the 
+        // at the next index
+        // because we already passed all values to the
         // first component
         strategies[i + 1] = PoseidonPerm(4);
         strategies[i + 1].inputs[0] <== strategies[i].out[0];
 
-        // set the inputs from the ciphertext 
+        // set the inputs from the ciphertext
         for (var j = 0; j < 3; j++) {
             strategies[i + 1].inputs[j + 1] <== ciphertext[i * 3 + j];
         }
     }
-    
+
     // pass in the last
     decryptedLast <== strategies[n].out[1];
 }
