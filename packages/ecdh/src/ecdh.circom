@@ -14,6 +14,7 @@ template Ecdh() {
     signal input privateKey;
     signal input publicKey[2];
 
+    // A comment.
     signal output sharedKey[2];
 
     // convert the private key to its bits representation
