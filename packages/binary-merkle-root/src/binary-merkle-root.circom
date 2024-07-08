@@ -18,7 +18,7 @@ include "comparators.circom";
 template BinaryMerkleRoot(MAX_DEPTH) {
     signal input leaf, depth, indices[MAX_DEPTH], siblings[MAX_DEPTH];
 
-    signal output out;
+    signal output outt;
 
     signal nodes[MAX_DEPTH + 1];
     nodes[0] <== leaf;
