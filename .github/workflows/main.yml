@@ -43,7 +43,12 @@ jobs:
                   tool: circomspect
 
             - name: Analyze circuits
-              run: yarn lint
+              run: circomspect packages/*/src -L ./node_modules/circomlib/circuits -s sarif
+
+            - name: Upload SARIF file
+              uses: github/codeql-action/upload-sarif@v3
+              with:
+                  sarif_file: sarif
 
     test:
         if: needs.changed-files.outputs.any_changed == 'true'
