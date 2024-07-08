@@ -43,7 +43,13 @@ jobs:
                   tool: circomspect
 
             - name: Analyze circuits
-              run: yarn lint
+              # circomspect does not exit with 0 if warnings are detected, have it return true so we can upload SARIF
+              run: circomspect packages/*/src -L ./node_modules/circomlib/circuits -s sarif || true
+
+            - name: Upload SARIF file
+              uses: github/codeql-action/upload-sarif@v3
+              with:
+                  sarif_file: sarif
 
     test:
         if: needs.changed-files.outputs.any_changed == 'true'
