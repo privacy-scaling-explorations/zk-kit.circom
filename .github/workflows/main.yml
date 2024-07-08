@@ -4,10 +4,14 @@ on:
     push:
         branches: [main]
         paths:
-            - "packages/**/*.{circom,json,ts}"
+            - "packages/**/*.circom"
+            - "packages/**/*.json"
+            - "packages/**/*.ts"
     pull_request:
         paths:
-            - "packages/**/*.{circom,json,ts}"
+            - "packages/**/*.circom"
+            - "packages/**/*.json"
+            - "packages/**/*.ts"
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
