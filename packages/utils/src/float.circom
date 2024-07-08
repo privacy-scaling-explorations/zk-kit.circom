@@ -1,8 +1,8 @@
 pragma circom 2.1.5;
 
-include "./bitify.circom";
-include "./comparators.circom";
-include "./mux1.circom";
+include "bitify.circom";
+include "comparators.circom";
+include "mux1.circom";
 
 // Template to determine the most significant bit (MSB) of an input number.
 template MSB(n) {

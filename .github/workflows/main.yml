@@ -1,0 +1,65 @@
+name: main
+
+on:
+    push:
+        branches: [main]
+        paths:
+            - "packages/**/*.{circom,json,ts}"
+    pull_request:
+        paths:
+            - "packages/**/*.{circom,json,ts}"
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+    cancel-in-progress: true
+
+jobs:
+    style:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  cache: yarn
+
+            - name: Install dependencies
+              run: yarn
+
+            - uses: taiki-e/cache-cargo-install-action@v2.0.1
+              with:
+                  tool: circomspect
+
+            - name: Analyze circuits
+              # circomspect does not exit with 0 if warnings are detected, have it return true so we can upload SARIF
+              run: circomspect packages/*/src -L ./node_modules/circomlib/circuits -s sarif || true
+
+            - name: Upload SARIF file
+              uses: github/codeql-action/upload-sarif@v3
+              with:
+                  sarif_file: sarif
+
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  cache: yarn
+
+            - name: Install dependencies
+              run: yarn
+
+            # https://github.com/iden3/circuits/blob/8fffb6609ecad0b7bcda19bb908bdb544bdb3cf7/.github/workflows/main.yml#L18-L22
+            # https://stackoverflow.com/a/78377916
+            - name: Setup Circom
+              run: |
+                  sudo rm /etc/apt/sources.list.d/microsoft-prod.list
+                  sudo apt-get update && sudo apt-get install -y nlohmann-json3-dev libgmp-dev nasm build-essential
+                  wget https://github.com/iden3/circom/releases/latest/download/circom-linux-amd64 && sudo mv ./circom-linux-amd64 /usr/bin/circom && sudo chmod +x /usr/bin/circom
+
+            - name: Test circuits
+              run: yarn test

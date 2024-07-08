@@ -1,6 +1,6 @@
 pragma circom 2.1.5;
 
-include "./bitify.circom";
+include "bitify.circom";
 
 // Template to convert a single field element into multiple 50-bit elements.
 template UnpackElement(n) {
@@ -13,7 +13,7 @@ template UnpackElement(n) {
     assert(n > 1 && n <= 5);
 
     // Convert the input signal to its bit representation.
-    var bits[254]; 
+    var bits[254];
     bits = Num2Bits_strict()(in);
 
     for (var i = 0; i < n; i++) {
