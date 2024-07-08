@@ -16,8 +16,8 @@
     <a href="https://github.com/privacy-scaling-explorations/zk-kit.circom/blob/main/LICENSE">
         <img alt="Github license" src="https://img.shields.io/github/license/privacy-scaling-explorations/zk-kit.circom.svg?style=flat-square">
     </a>
-    <a href="https://github.com/privacy-scaling-explorations/zk-kit.circom/actions?query=workflow%3Atests">
-        <img alt="GitHub Workflow tests" src="https://img.shields.io/github/actions/workflow/status/privacy-scaling-explorations/zk-kit.circom/tests.yml?branch=main&label=test&style=flat-square&logo=github">
+    <a href="https://github.com/privacy-scaling-explorations/zk-kit.circom/actions?query=workflow%3Amain">
+        <img alt="Main GitHub Workflow" src="https://img.shields.io/github/actions/workflow/status/privacy-scaling-explorations/zk-kit.circom/main.yml?branch=main&label=main&style=flat-square&logo=github">
     </a>
     <a href="https://prettier.io/">
         <img alt="Code style prettier" src="https://img.shields.io/badge/code%20style-prettier-f8bc45?style=flat-square&logo=prettier">
