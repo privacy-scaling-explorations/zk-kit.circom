@@ -8,6 +8,9 @@ include "mux1.circom";
 template MSB(n) {
     signal input in;
     signal output out;
+   
+    // Ensure the input is less than 2^254 within the finite field for BN254.
+    assert(in < (2 ** 254));
 
     // Convert the number to its bit representation.
     var n2b[n];
