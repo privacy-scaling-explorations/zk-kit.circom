@@ -3,6 +3,7 @@ pragma circom 2.1.5;
 include "bitify.circom";
 include "comparators.circom";
 include "mux1.circom";
+include "safe-comparators.circom";
 
 // Template to determine the most significant bit (MSB) of an input number.
 template MSB(n) {
@@ -44,66 +45,21 @@ template Shift(n) {
 }
 
 // Template for performing integer division.
-template IntegerDivision(n) {
-    // Dividend.
-    signal input a;
-    // Divisor.
-    signal input b;
-    // Quotient.
-    signal output c;
+template IntegerDivision() {
+    signal input dividend;
+    signal input divisor;
+    signal output quotient;
+    signal output remainder;
+    
+    quotient <-- dividend \ divisor;
+    remainder <-- dividend % divisor;
+    
+    // Create a signal for the SafeLessThan result
+    signal isLessThan <== SafeLessThan(252)([remainder, divisor]);
+    1 === isLessThan;
 
-    // Ensure inputs are within the valid range.
-    var lta;
-    var ltb;
-
-    lta = LessThan(252)([a, 2**n]);
-    ltb = LessThan(252)([b, 2**n]);
-
-    assert(lta == 1);
-    assert(ltb == 1);
-
-    // Ensure the divisor 'b' is not zero.
-    var isz;
-
-    isz = IsZero()(b);
-
-    assert(isz == 0);
-
-    // Prepare variables for division.
-    var dividend = a;
-    var remainder = 0;
-
-    var bits[n];
-
-    // Loop to perform division through bit-shifting and subtraction.
-    for (var i = n - 1; i >= 0; i--) {
-        // Shift 'dividend' and 'rem' and determine if 'b' can be subtracted from the new 'rem'.
-        var shiftedDividend;
-        var shiftedRem;
-
-        (shiftedDividend, shiftedRem) = Shift(i + 1)(dividend, remainder);
-
-        // Determine if 'b' <= 'rem'.
-        var canSubtract;
-
-        canSubtract = LessEqThan(n)([b, shiftedRem]);
-
-        // Select 1 if 'b' can be subtracted (i.e., 'b' <= 'rem'), else select 0.
-        var subtractBit;
-
-        subtractBit = Mux1()([0, 1], canSubtract);
-
-        // Subtract 'b' from 'rem' if possible, and set the corresponding bit in 'bits'.
-        bits[i] = subtractBit;
-
-        remainder = shiftedRem - b * subtractBit;
-
-        // Prepare 'dividend' for the next iteration.
-        dividend = shiftedDividend;
-    }
-
-    // Convert the bit array representing the quotient into a number.
-    c <== Bits2Num(n)(bits);
+    // Verify the division
+    dividend === divisor * quotient + remainder;
 }
 
 // Converts an integer to its floating-point representation by multiplying it with 10^W.
@@ -127,11 +83,9 @@ template ToFloat(W) {
 }
 
 // Performs division on floating-point numbers represented with W decimal digits.
-template DivisionFromFloat(W, n) {
+template DivisionFromFloat(W) {
     // Ensure W is within the valid range for floating-point representation.
     assert(W < 75);
-    // Ensure n, the bit-width of inputs, is within a valid range.
-    assert(n < 252);
 
      // Numerator.
     signal input a;
@@ -147,12 +101,16 @@ template DivisionFromFloat(W, n) {
 
     assert(lt == 1);
 
-    // Use IntegerDivision for division operation.
-    c <== IntegerDivision(n)(a * (10 ** W), b);
+    // Use tuple assignment to get both quotient and remainder
+    signal quotient;
+    (quotient, _) <== IntegerDivision()(a * (10 ** W), b);
+    
+    // Assign the quotient to the output
+    c <== quotient;
 }
 
 // Performs division on integers by first converting them to floating-point representation.
-template DivisionFromNormal(W, n) {
+template DivisionFromNormal(W) {
      // Numerator.
     signal input a;
     // Denominator.
@@ -161,17 +119,13 @@ template DivisionFromNormal(W, n) {
     signal output c;
 
     // Convert input to float and perform division.
-    c <== DivisionFromFloat(W, n)(ToFloat(W)(a), ToFloat(W)(b));
+    c <== DivisionFromFloat(W)(ToFloat(W)(a), ToFloat(W)(b));
 }
 
 // Performs multiplication on floating-point numbers and converts the result back to integer form.
-template MultiplicationFromFloat(W, n) {
+template MultiplicationFromFloat(W) {
     // Ensure W is within the valid range for floating-point representation.
     assert(W < 75);
-    // Ensure n, the bit-width of inputs, is within a valid range.
-    assert(n < 252);
-    // Ensure scaling factor is within the range of 'n' bits.
-    assert(10**W < 2**n);
 
     // Multiplicand.
     signal input a;
@@ -191,11 +145,13 @@ template MultiplicationFromFloat(W, n) {
     assert(ltb == 1);
 
     // Perform integer division after multiplication to adjust the result back to W decimal digits.
-    c <== IntegerDivision(n)(a * b, 10 ** W);
+    signal quotient;
+    (quotient, _) <== IntegerDivision()(a * b, 10 ** W);
+    c <== quotient;
 }
 
 // Performs multiplication on integers by first converting them to floating-point representation.
-template MultiplicationFromNormal(W, n) {
+template MultiplicationFromNormal(W) {
     // Multiplicand.
     signal input a;
     // Multiplier.
@@ -204,5 +160,5 @@ template MultiplicationFromNormal(W, n) {
     signal output c;
 
     // Convert input to float and perform multiplication.
-    c <== MultiplicationFromFloat(W, n)(ToFloat(W)(a), ToFloat(W)(b));
+    c <== MultiplicationFromFloat(W)(ToFloat(W)(a), ToFloat(W)(b));
 }

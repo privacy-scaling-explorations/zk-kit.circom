@@ -78,45 +78,43 @@ describe("float", () => {
     })
 
     describe("IntegerDivision", () => {
-        let circuit: WitnessTester<["a", "b"], ["c"]>
+        let circuit: WitnessTester<["dividend", "divisor"], ["quotient", "remainder"]>
 
         it("Should throw when trying to perform division per zero [x, 0]", async () => {
-            // Test values
             const inValues = {
                 a: 10,
                 b: 0
             }
 
             const INPUT = {
-                a: inValues.a,
-                b: inValues.b
+                dividend: inValues.a,
+                divisor: inValues.b
             }
 
             circuit = await circomkit.WitnessTester("IntegerDivision", {
                 file: "float",
                 template: "IntegerDivision",
-                params: [2] // Assuming we're working within 2-bit numbers.
+                params: []
             })
 
             await circuit.expectFail(INPUT)
         })
 
         it("Should throw when trying to perform division per negative number [x, -x]", async () => {
-            // Test values
             const inValues = {
                 a: 10,
                 b: -10
             }
 
             const INPUT = {
-                a: inValues.a,
-                b: inValues.b
+                dividend: inValues.a,
+                divisor: inValues.b
             }
 
             circuit = await circomkit.WitnessTester("IntegerDivision", {
                 file: "float",
                 template: "IntegerDivision",
-                params: [2] // Assuming we're working within 2-bit numbers.
+                params: []
             })
 
             await circuit.expectFail(INPUT)
@@ -128,21 +126,26 @@ describe("float", () => {
                 a: 0,
                 b: 1
             }
-            const expectedOut = 0
+
+            const expectedOut = {
+                quotient: 0,
+                remainder: 0
+            }
 
             const INPUT = {
-                a: inValues.a,
-                b: inValues.b
+                dividend: inValues.a,
+                divisor: inValues.b
             }
 
             const OUTPUT = {
-                c: expectedOut
+                quotient: expectedOut.quotient,
+                remainder: expectedOut.remainder
             }
 
             circuit = await circomkit.WitnessTester("IntegerDivision", {
                 file: "float",
                 template: "IntegerDivision",
-                params: [2] // Assuming we're working within 2-bit numbers.
+                params: []
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -154,21 +157,25 @@ describe("float", () => {
                 a: 10,
                 b: 2
             }
-            const expectedOut = 5
+            const expectedOut = {
+                quotient: 5,
+                remainder: 0
+            }
 
             const INPUT = {
-                a: inValues.a,
-                b: inValues.b
+                dividend: inValues.a,
+                divisor: inValues.b
             }
 
             const OUTPUT = {
-                c: expectedOut
+                quotient: expectedOut.quotient,
+                remainder: expectedOut.remainder
             }
 
             circuit = await circomkit.WitnessTester("IntegerDivision", {
                 file: "float",
                 template: "IntegerDivision",
-                params: [10] // Assuming we're working within 10-bit numbers.
+                params: []
             })
             await circuit.expectPass(INPUT, OUTPUT)
         })
@@ -220,7 +227,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("DivisionFromFloat", {
                 file: "float",
                 template: "DivisionFromFloat",
-                params: [2, 1] // W decimal digits, N Assuming we're working within 2-bit numbers.
+                params: [1] // W decimal digits
             })
 
             await circuit.expectFail(INPUT)
@@ -241,7 +248,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("DivisionFromFloat", {
                 file: "float",
                 template: "DivisionFromFloat",
-                params: [2, 1] // W decimal digits, N Assuming we're working within 2-bit numbers.
+                params: [1] // W decimal digits
             })
 
             await circuit.expectFail(INPUT)
@@ -267,7 +274,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("DivisionFromFloat", {
                 file: "float",
                 template: "DivisionFromFloat",
-                params: [2, 1] // W decimal digits, N Assuming we're working within 2-bit numbers.
+                params: [1] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -293,7 +300,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("DivisionFromFloat", {
                 file: "float",
                 template: "DivisionFromFloat",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -318,7 +325,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("DivisionFromNormal", {
                 file: "float",
                 template: "DivisionFromNormal",
-                params: [2, 1] // W decimal digits, N Assuming we're working within 2-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectFail(INPUT)
@@ -339,7 +346,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("DivisionFromNormal", {
                 file: "float",
                 template: "DivisionFromNormal",
-                params: [2, 1] // W decimal digits, N Assuming we're working within 2-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectFail(INPUT)
@@ -365,7 +372,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("DivisionFromNormal", {
                 file: "float",
                 template: "DivisionFromNormal",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -391,7 +398,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("DivisionFromNormal", {
                 file: "float",
                 template: "DivisionFromNormal",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -416,7 +423,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("MultiplicationFromFloat", {
                 file: "float",
                 template: "MultiplicationFromFloat",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectFail(INPUT)
@@ -442,7 +449,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("MultiplicationFromFloat", {
                 file: "float",
                 template: "MultiplicationFromFloat",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -468,7 +475,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("MultiplicationFromFloat", {
                 file: "float",
                 template: "MultiplicationFromFloat",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -494,7 +501,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("MultiplicationFromFloat", {
                 file: "float",
                 template: "MultiplicationFromFloat",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -520,7 +527,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("MultiplicationFromFloat", {
                 file: "float",
                 template: "MultiplicationFromFloat",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -545,7 +552,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("MultiplicationFromNormal", {
                 file: "float",
                 template: "MultiplicationFromNormal",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectFail(INPUT)
@@ -571,7 +578,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("MultiplicationFromNormal", {
                 file: "float",
                 template: "MultiplicationFromNormal",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -597,7 +604,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("MultiplicationFromNormal", {
                 file: "float",
                 template: "MultiplicationFromNormal",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -623,7 +630,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("MultiplicationFromNormal", {
                 file: "float",
                 template: "MultiplicationFromNormal",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
@@ -649,7 +656,7 @@ describe("float", () => {
             circuit = await circomkit.WitnessTester("MultiplicationFromNormal", {
                 file: "float",
                 template: "MultiplicationFromNormal",
-                params: [2, 31] // W decimal digits, N Assuming we're working within 32-bit numbers.
+                params: [2] // W decimal digits
             })
 
             await circuit.expectPass(INPUT, OUTPUT)
