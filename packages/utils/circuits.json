@@ -12,7 +12,7 @@
     "integer-division": {
         "file": "float",
         "template": "IntegerDivision",
-        "params": [252]
+        "params": []
     },
     "to-float": {
         "file": "float",
@@ -22,22 +22,22 @@
     "division-from-float": {
         "file": "float",
         "template": "DivisionFromFloat",
-        "params": [74, 251]
+        "params": [74]
     },
     "division-from-normal": {
         "file": "float",
         "template": "DivisionFromNormal",
-        "params": [74, 251]
+        "params": [74]
     },
     "multiplication-from-float": {
         "file": "float",
         "template": "MultiplicationFromFloat",
-        "params": [74, 251]
+        "params": [74]
     },
     "multiplication-from-normal": {
         "file": "float",
         "template": "MultiplicationFromNormal",
-        "params": [74, 251]
+        "params": [74]
     },
     "safe-less-than": {
         "file": "safe-comparators",
