@@ -51,6 +51,7 @@ template IntegerDivision() {
     signal output quotient;
     signal output remainder;
     
+    assert(divisor != 0);
     quotient <-- dividend \ divisor;
     remainder <-- dividend % divisor;
     
@@ -144,6 +145,14 @@ template MultiplicationFromFloat(W) {
     assert(lta == 1);
     assert(ltb == 1);
 
+    // Add validation for negative numbers
+    signal isANonNegative <== SafeGreaterEqThan(252)([a, 0]);
+    signal isBNonNegative <== SafeGreaterEqThan(252)([b, 0]);
+    
+    // Assert both inputs are non-negative
+    1 === isANonNegative;
+    1 === isBNonNegative;
+
     // Perform integer division after multiplication to adjust the result back to W decimal digits.
     signal quotient;
     (quotient, _) <== IntegerDivision()(a * b, 10 ** W);
@@ -158,6 +167,14 @@ template MultiplicationFromNormal(W) {
     signal input b;
     // Product.
     signal output c;
+
+    // Add validation for negative numbers
+    signal isANonNegative <== SafeGreaterEqThan(252)([a, 0]);
+    signal isBNonNegative <== SafeGreaterEqThan(252)([b, 0]);
+    
+    // Assert both inputs are non-negative
+    1 === isANonNegative;
+    1 === isBNonNegative;
 
     // Convert input to float and perform multiplication.
     c <== MultiplicationFromFloat(W)(ToFloat(W)(a), ToFloat(W)(b));
