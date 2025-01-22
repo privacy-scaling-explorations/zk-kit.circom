@@ -11,6 +11,7 @@ include "poseidon-constants-old.circom";
 // we import this for util functions like Ark, Mix, Sigma
 include "poseidon_old.circom";
 include "comparators.circom";
+include "bitify.circom";
 
 // Poseidon decryption circuit
 // param length: length of the input
@@ -107,13 +108,9 @@ template PoseidonDecryptIterations(length) {
     signal output decrypted[decryptedLength];
     signal output decryptedLast;
 
-    var two128 = 2 ** 128;
-
     // nonce must be < 2^128
-    component lt = LessThan(252);
-    lt.in[0] <== nonce;
-    lt.in[1] <== two128;
-    lt.out === 1;
+    component n2b = Num2Bits(128);
+    n2b.in <== nonce;
 
     // calculate the number of iterations
     // needed for the decryption
@@ -133,7 +130,7 @@ template PoseidonDecryptIterations(length) {
     strategies[0].inputs[0] <== 0;
     strategies[0].inputs[1] <== key[0];
     strategies[0].inputs[2] <== key[1];
-    strategies[0].inputs[3] <== nonce + (length * two128);
+    strategies[0].inputs[3] <== nonce + (length << 128);
 
     // loop for n iterations
     for (var i = 0; i < n; i++) {
