@@ -11,12 +11,19 @@ template SafeLessThan(n) {
     signal input in[2];
     signal output out;
 
+    // Constrain inputs to n bits
+    component range_check[2];
+    for (var i = 0; i < 2; i++) {
+        range_check[i] = Num2Bits(n);
+        range_check[i].in <== in[i];
+    }
+
     // Additional conversion to handle arithmetic operation and capture the comparison result.
-    var n2b[254];
-    n2b = Num2Bits_strict()(in[0] + (1<<n) - in[1]);
+    component n2b = Num2Bits(n + 1);
+    n2b.in <== in[0] + (1<<n) - in[1];
 
     // Determine if in[0] is less than in[1] based on the most significant bit.
-    out <== 1 - n2b[n];
+    out <== 1 - n2b.out[n];
 }
 
 // Template to check if one input is less than or equal to another.
