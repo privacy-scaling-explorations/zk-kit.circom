@@ -116,7 +116,7 @@ template ToFloat(W) {
 
     lt = LessEqThan(252)([in, 10 ** (75 - W)]);
 
-    assert(lt == 1);
+    lt === 1;
 
     // Convert the integer to floating-point by multiplying with 10^W.
     out <== in * (10**W);
@@ -141,7 +141,7 @@ template DivisionFromFloat(W, n) {
 
     lt = LessEqThan(252)([a, 10 ** (75 - W)]);
 
-    assert(lt == 1);
+    lt === 1;
 
     // Use IntegerDivision for division operation.
     c <== IntegerDivision(n)(a * (10 ** W), b);
@@ -177,14 +177,10 @@ template MultiplicationFromFloat(W, n) {
     signal output c;
 
     // Ensure both inputs 'a' and 'b' are within a valid range for multiplication.
-    var lta;
-    var ltb;
-
-    lta = LessEqThan(252)([a, 2 ** 126]);
-    ltb = LessEqThan(252)([b, 2 ** 126]);
-
-    assert(lta == 1);
-    assert(ltb == 1);
+    component range_check[2];
+    for (var i = 0; i < 2; i++){ range_check[i] = Num2Bits(126);}
+    range_check[0].in <== a;
+    range_check[1].in <== b;
 
     // Perform integer division after multiplication to adjust the result back to W decimal digits.
     c <== IntegerDivision(n)(a * b, 10 ** W);
