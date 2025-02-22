@@ -52,22 +52,18 @@ template IntegerDivision(n) {
     // Quotient.
     signal output c;
 
-    // Ensure inputs are within the valid range.
-    var lta;
-    var ltb;
-
-    lta = LessThan(252)([a, 2**n]);
-    ltb = LessThan(252)([b, 2**n]);
-
-    assert(lta == 1);
-    assert(ltb == 1);
+    // Constrain Dividend and Divisor to n bits.
+    component range_check[2];
+    for (var i = 0; i < 2; i++){ range_check[i] = Num2Bits(n);}
+    range_check[0].in <== a;
+    range_check[1].in <== b;
 
     // Ensure the divisor 'b' is not zero.
     var isz;
 
     isz = IsZero()(b);
 
-    assert(isz == 0);
+    isz === 0;
 
     // Prepare variables for division.
     var dividend = a;
