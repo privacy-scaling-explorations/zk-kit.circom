@@ -19,14 +19,14 @@ export const circomkit = new Circomkit({
  *
  * @typeParam leaf the leaf value.
  * @typeParam depth the actual depth of the Merkle tree.
- * @typeParam indices binary representation of the `leafIndex` path.
+ * @typeParam index the leaf index.
  * @typeParam siblings nodes encountered when traversing from the leaf to the root.
  * @typeParam root the Merkle root of the tree, calculated from all the leaves.
  */
 export type BinaryMerkleTreeProof = {
     leaf: bigint
     depth: number
-    indices: number[]
+    index: number
     siblings: bigint[]
     root: bigint
 }
@@ -56,15 +56,11 @@ export const generateBinaryMerkleRoot = (maxDepth = 5, nodes = 32, leafIndex = 0
 
     const depth = siblings.length
 
-    // The index must be converted to a list of indices, 1 for each tree level.
-    // The circuit tree depth is 20, so the number of siblings must be 20, even if
-    // the tree depth is actually 3. The missing siblings can be set to 0, as they
-    // won't be used to calculate the root in the circuit.
-    const indices: number[] = []
-
+    // For example, if the circuit expects a Merkle tree of depth 20,
+    // the input must always include 20 sibling nodes, even if the actual
+    // tree depth is smaller (e.g., 3). The unused sibling positions can be
+    // filled with 0, as they won't affect the root calculation in the circuit.
     for (let i = 0; i < maxDepth; i += 1) {
-        indices.push((index >> i) & 1)
-
         if (siblings[i] === undefined) {
             siblings[i] = BigInt(0)
         }
@@ -73,7 +69,7 @@ export const generateBinaryMerkleRoot = (maxDepth = 5, nodes = 32, leafIndex = 0
     return {
         leaf,
         depth,
-        indices,
+        index,
         siblings,
         root: tree.root
     }
