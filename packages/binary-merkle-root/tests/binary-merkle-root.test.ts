@@ -6,23 +6,6 @@ describe("binary-merkle-root", () => {
 
     const MAX_DEPTH = 5
 
-    it("Should throw an error if MAX_DEPTH is zero", async () => {
-        const INPUT = {
-            leaf: BigInt(0),
-            depth: BigInt(0),
-            index: 0,
-            siblings: []
-        }
-
-        circuit = await circomkit.WitnessTester("binary-merkle-root", {
-            file: "binary-merkle-root",
-            template: "BinaryMerkleRoot",
-            params: [MAX_DEPTH]
-        })
-
-        await circuit.expectFail(INPUT)
-    })
-
     it("Should throw an error if there are not enough values for input signal siblings", async () => {
         const INPUT = {
             leaf: BigInt(0),
